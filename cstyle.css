@@ -1,0 +1,125 @@
+/* 기본 설정 */
+body {
+    background-color: #fafafa; /* 인스타그램 특유의 연한 회색 배경 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    color: #262626;
+}
+
+/* 전체 컨텐츠 중앙 정렬 및 너비 제한 */
+main {
+    max-width: 935px; /* 인스타그램 PC 버전 본문 너비 */
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* --- 상단 프로필 영역 (Flexbox 활용) --- */
+header {
+    display: flex;          /* 가로 배치 */
+    align-items: center;    /* 세로 중앙 정렬 */
+    margin-bottom: 44px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid #dbdbdb; /* 하단 구분선 */
+}
+
+/* 프로필 사진 구역 */
+header section:first-child {
+    flex: 1;                /* 왼쪽 공간 차지 */
+    text-align: center;
+    margin-right: 30px;
+}
+
+header img {
+    border-radius: 50%;     /* 원형 프로필 사진 */
+    border: 1px solid #dbdbdb;
+    padding: 5px;
+    object-fit: cover;      /* 사진 비율 유지 */
+    width: 150px;           /* 크기 고정 */
+    height: 150px;
+    transition: transform 0.3s ease; /* hover 효과를 위해 추가 */
+}
+
+/* 프로필 글 구역 */
+header section:last-child {
+    flex: 2;                /* 오른쪽 공간 더 많이 차지 */
+}
+/* main 영역(소개 섹션 등) 안의 이미지 스타일 */
+main img {
+    width: 200px;         /* 가로 크기를 200px로 줄임 (원하는 크기로 조절하세요) */
+    height: 200px;        /* 세로 크기도 동일하게 해서 정사각형으로 만듦 */
+    object-fit: cover;    /* 비율이 깨지지 않게 사진을 꽉 채움 */
+    border-radius: 10px;  /* 모서리를 살짝 둥글게 (인스타 감성) */
+    margin: 10px;         /* 사진끼리 너무 붙지 않게 여백 주기 */
+}
+/* 이미지가 들어있는 section을 가로로 정렬 */
+main section:first-child {
+    display: flex;        /* 가로 배치 */
+    flex-wrap: wrap;      /* 사진이 많으면 다음 줄로 넘김 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center;  /* 세로 중앙 정렬 */
+}
+
+/* 사용자 이름 (h1) */
+header h1 {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+/* 소개글 (p) */
+header p {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+}
+
+/* --- 하단 관심사/강점 영역 (Grid 활용) --- */
+/* 기존 ul 태그들을 인스타그램 사진 그리드처럼 배치 */
+main > section ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 그리드 */
+    gap: 28px;              /* 사진 사이 간격 */
+    list-style: none;       /* 불렛 포인트 제거 */
+    padding: 0;
+    margin-top: 20px;
+}
+
+main > section li {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    aspect-ratio: 1 / 1;    /* 정사각형 유지 */
+    display: flex;
+    align-items: center;    /* 글자 세로 중앙 */
+    justify-content: center; /* 글자 가로 중앙 */
+    font-size: 18px;
+    font-weight: 600;
+    color: #00376b;         /* 인스타그램 링크 색상 느낌 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 마우스를 올렸을 때 효과 */
+main > section li:hover {
+    background-color: #fafafa;
+}
+
+/* 섹션 제목 (h2) 숨기기 (인스타그램은 제목이 없으므로) */
+main > section h2 {
+    display: block;        /* 다시 보이게 설정 */
+    font-size: 14px;       /* 인스타그램 카테고리 느낌으로 작게 */
+    color: #8e8e8e;        /* 연한 회색 */
+    text-align: center;
+    border-top: 1px solid #dbdbdb; /* 위쪽에 선을 그어 구분 */
+    padding-top: 15px;
+    margin-top: 30px;
+    text-transform: uppercase; /* 대문자로 변경 */
+    letter-spacing: 1px;   /* 글자 간격 넓게 */
+}
+
+/* --- 하단 푸터 --- */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #8e8e8e;
+    font-size: 12px;
+}
